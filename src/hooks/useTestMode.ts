@@ -30,7 +30,11 @@ interface UseTestModeReturn {
 }
 
 const DEFAULT_CONFIG: TestModeConfig = {
-  scoreRanges: [{ min: 2, max: 170 }],
+  scoreRanges: [
+    { min: 2, max: 50 },
+    { min: 51, max: 100 },
+    { min: 101, max: 170 },
+  ],
   dartsInHand: [1, 2, 3],
 };
 
@@ -99,25 +103,39 @@ const generateRandomQuestion = (
     };
   }
 
-  let score: number;
-  let dartsInHand: 1 | 2 | 3;
+  // Create valid combinations of score and darts in hand
+  const validCombinations: TestQuestion[] = [];
+  for (const score of filteredScores) {
+    for (const darts of config.dartsInHand) {
+      validCombinations.push({ score, dartsInHand: darts });
+    }
+  }
 
-  const maxAttempts = 10;
-  let attempts = 0;
+  if (validCombinations.length === 0) {
+    return {
+      score: 100,
+      dartsInHand: 3,
+    };
+  }
 
-  do {
-    score = filteredScores[Math.floor(Math.random() * filteredScores.length)];
-    dartsInHand =
-      config.dartsInHand[Math.floor(Math.random() * config.dartsInHand.length)];
-    attempts++;
-  } while (
-    previousQuestion &&
-    previousQuestion.score === score &&
-    previousQuestion.dartsInHand === dartsInHand &&
-    attempts < maxAttempts
-  );
+  // Filter out the previous question if possible
+  let availableCombinations = validCombinations;
+  if (previousQuestion && validCombinations.length > 1) {
+    availableCombinations = validCombinations.filter(
+      (combo) =>
+        combo.score !== previousQuestion.score ||
+        combo.dartsInHand !== previousQuestion.dartsInHand
+    );
+    
+    // If filtering removed all options, use all combinations
+    if (availableCombinations.length === 0) {
+      availableCombinations = validCombinations;
+    }
+  }
 
-  return { score, dartsInHand };
+  // Pick a random combination
+  const randomIndex = Math.floor(Math.random() * availableCombinations.length);
+  return availableCombinations[randomIndex];
 };
 
 export const useTestMode = (

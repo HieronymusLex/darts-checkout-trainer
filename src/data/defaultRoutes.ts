@@ -592,9 +592,9 @@ export const DEFAULT_ROUTES: Record<number, CheckoutRoutes> = {
     threeDarts: ["S13", "D20"],
   },
   52: {
-    oneDart: ["S12"],
+    oneDart: ["S20"],
     twoDarts: ["S12", "D20"],
-    threeDarts: ["S12", "D20"],
+    threeDarts: ["S20", "D16"],
   },
   51: {
     oneDart: ["S11"],

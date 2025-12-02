@@ -135,10 +135,10 @@ export const DartboardInput = ({
         <button
           onClick={() => handleBullClick("BULL")}
           disabled={selectedDarts.length >= maxDarts || disabled}
-          className={`py-3 rounded font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-gray-800 ${
+          className={`bg-gray-700 py-3 rounded font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-gray-800 ${
             selectedDarts.length >= maxDarts || disabled
-              ? "bg-gray-700 text-gray-500 cursor-not-allowed border border-gray-600"
-              : "bg-red-600 text-white hover:bg-red-700 shadow-sm hover:shadow-md"
+              ? "text-gray-500 cursor-not-allowed border border-gray-600"
+              : "text-white hover:bg-red-700 shadow-sm hover:shadow-md"
           }`}
         >
           Bullseye (50)
@@ -146,10 +146,10 @@ export const DartboardInput = ({
         <button
           onClick={() => handleBullClick("OB")}
           disabled={selectedDarts.length >= maxDarts || disabled}
-          className={`py-3 rounded font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 focus:ring-offset-gray-800 ${
+          className={`bg-gray-700 py-3 rounded font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1 focus:ring-offset-gray-800 ${
             selectedDarts.length >= maxDarts || disabled
-              ? "bg-gray-700 text-gray-500 cursor-not-allowed border border-gray-600"
-              : "bg-green-600 text-white hover:bg-green-700 shadow-sm hover:shadow-md"
+              ? "text-gray-500 cursor-not-allowed border border-gray-600"
+              : "text-white hover:bg-green-700 shadow-sm hover:shadow-md"
           }`}
         >
           Outer Bull (25)
