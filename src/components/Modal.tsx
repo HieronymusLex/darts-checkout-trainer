@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { type ReactNode } from "react";
 import { FiX } from "react-icons/fi";
 
 interface ModalProps {
