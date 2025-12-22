@@ -79,7 +79,10 @@ export const writeToLocalStorage = (
       success: true,
     };
   } catch (error) {
-    if (error instanceof Error && error.name === "QuotaExceededError") {
+    if (
+      (error instanceof Error && error.name === "QuotaExceededError") ||
+      (error instanceof DOMException && error.name === "QuotaExceededError")
+    ) {
       return {
         success: false,
         error: "localStorage quota exceeded",
@@ -89,7 +92,7 @@ export const writeToLocalStorage = (
     return {
       success: false,
       error:
-        error instanceof Error
+        error instanceof Error || error instanceof DOMException
           ? error.message
           : "Failed to write to localStorage",
     };

@@ -269,7 +269,7 @@ export const DEFAULT_ROUTES: Record<number, CheckoutRoutes> = {
   117: {
     oneDart: ["T19"],
     twoDarts: ["T19", "S19"],
-    threeDarts: ["T19", "S19", "D20"],
+    threeDarts: ["T19", "S20", "D20"],
   },
   116: {
     oneDart: ["T20"],
@@ -513,7 +513,7 @@ export const DEFAULT_ROUTES: Record<number, CheckoutRoutes> = {
   },
   68: {
     oneDart: ["T12"],
-    twoDarts: ["T18", "D8"],
+    twoDarts: ["T18", "D7"],
     threeDarts: ["T12", "D16"],
   },
   67: {

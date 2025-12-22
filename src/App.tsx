@@ -4,7 +4,6 @@ import { FiSearch, FiTarget, FiBarChart2 } from "react-icons/fi";
 import { LookupMode } from "@/routes/LookupMode";
 import { TestMode } from "@/routes/TestMode";
 import { StatsMode } from "@/routes/StatsMode";
-import logoSvg from "/logo.svg";
 
 type AppMode = "lookup" | "test" | "stats";
 
@@ -18,11 +17,9 @@ function App() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img 
-                src={logoSvg} 
+                src="/darts-checkout-trainer/logo.svg" 
                 alt="Darts Checkout Trainer Logo" 
-                className="w-8 h-8"
-                onError={(e) => console.error('Logo failed to load:', e)}
-                onLoad={() => console.log('Logo loaded successfully')}
+                className="w-8 h-8 md:w-10 md:h-10"
               />
               <h1 className="text-2xl md:text-3xl font-bold text-white">
                 Checkout Trainer

@@ -68,11 +68,23 @@ describe("storage utilities", () => {
     });
 
     it("should handle quota exceeded error", () => {
-      const setItemSpy = vi.spyOn(Storage.prototype, "setItem");
-      const quotaError = new Error("QuotaExceededError");
-      quotaError.name = "QuotaExceededError";
-      setItemSpy.mockImplementation(() => {
-        throw quotaError;
+      // Store original localStorage
+      const originalLocalStorage = window.localStorage;
+      
+      // Mock localStorage with setItem that throws
+      const mockLocalStorage = {
+        setItem: vi.fn(() => {
+          const quotaError = new DOMException("QuotaExceededError", "QuotaExceededError");
+          throw quotaError;
+        }),
+        getItem: vi.fn(),
+        removeItem: vi.fn(),
+        clear: vi.fn(),
+      };
+
+      Object.defineProperty(window, 'localStorage', {
+        value: mockLocalStorage,
+        writable: true
       });
 
       const testData: CheckoutData = {
@@ -81,10 +93,15 @@ describe("storage utilities", () => {
 
       const result = writeToLocalStorage(testData);
 
+      expect(mockLocalStorage.setItem).toHaveBeenCalled();
       expect(result.success).toBe(false);
       expect(result.error).toBe("localStorage quota exceeded");
 
-      setItemSpy.mockRestore();
+      // Restore original localStorage
+      Object.defineProperty(window, 'localStorage', {
+        value: originalLocalStorage,
+        writable: true
+      });
     });
   });
 
