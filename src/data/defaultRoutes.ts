@@ -593,23 +593,23 @@ export const DEFAULT_ROUTES: Record<number, CheckoutRoutes> = {
   },
   52: {
     oneDart: ["S20"],
-    twoDarts: ["S12", "D20"],
+    twoDarts: ["S20", "D16"],
     threeDarts: ["S20", "D16"],
   },
   51: {
     oneDart: ["S11"],
-    twoDarts: ["S11", "D20"],
-    threeDarts: ["S11", "D20"],
+    twoDarts: ["S19", "D16"],
+    threeDarts: ["S19", "D16"],
   },
   50: {
     oneDart: ["BULL"],
-    twoDarts: ["S10", "D20"],
-    threeDarts: ["S10", "D20"],
+    twoDarts: ["S18", "D16"],
+    threeDarts: ["S18", "D16"],
   },
   49: {
     oneDart: ["S9"],
-    twoDarts: ["S9", "D20"],
-    threeDarts: ["S9", "D20"],
+    twoDarts: ["S17", "D16"],
+    threeDarts: ["S17", "D16"],
   },
   48: {
     oneDart: ["S16"],

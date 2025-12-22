@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-210 -210 420 420" preserveAspectRatio="xMidYMid meet">
+  <title>Responsive Dartboard</title>
+  <defs>
+    <path id="wedge" d="M0,0 L0,-200 A200,200 0 0,1 61.8,-190.2 Z" />
+  </defs>
+
+  <circle r="210" fill="#111111"/>
+
+  <circle r="200" fill="#f0e6c2"/>
+
+  <g id="sectors">
+    <use href="#wedge" fill="#111111" transform="rotate(-9)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(27)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(63)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(99)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(135)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(171)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(207)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(243)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(279)"/>
+    <use href="#wedge" fill="#111111" transform="rotate(315)"/>
+  </g>
+
+  <circle r="190" fill="none" stroke-width="20" stroke="#008f39"/>
+  <circle r="190" fill="none" stroke-width="20" stroke="#e3001b" 
+          stroke-dasharray="59.7 59.7" stroke-dashoffset="-29.85" />
+
+  <circle r="117" fill="none" stroke-width="20" stroke="#008f39"/>
+  <circle r="117" fill="none" stroke-width="20" stroke="#e3001b" 
+          stroke-dasharray="36.75 36.75" stroke-dashoffset="-18.375" />
+
+  <circle r="32" fill="#008f39"/>
+  <circle r="16" fill="#e3001b"/>
+</svg>

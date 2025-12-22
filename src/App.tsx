@@ -4,6 +4,7 @@ import { FiSearch, FiTarget, FiBarChart2 } from "react-icons/fi";
 import { LookupMode } from "@/routes/LookupMode";
 import { TestMode } from "@/routes/TestMode";
 import { StatsMode } from "@/routes/StatsMode";
+import logoSvg from "/logo.svg";
 
 type AppMode = "lookup" | "test" | "stats";
 
@@ -15,9 +16,18 @@ function App() {
       <header className="bg-gray-800 shadow-lg border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl md:text-3xl font-bold text-white">
-              Darts Checkout Trainer
-            </h1>
+            <div className="flex items-center gap-3">
+              <img 
+                src={logoSvg} 
+                alt="Darts Checkout Trainer Logo" 
+                className="w-8 h-8"
+                onError={(e) => console.error('Logo failed to load:', e)}
+                onLoad={() => console.log('Logo loaded successfully')}
+              />
+              <h1 className="text-2xl md:text-3xl font-bold text-white">
+                Checkout Trainer
+              </h1>
+            </div>
             <nav className="flex items-center gap-6">
               <button
                 onClick={() => setMode("lookup")}
