@@ -13,12 +13,12 @@ function App() {
 
   const handleModeChange = (newMode: AppMode) => {
     setMode(newMode);
-    setIsMobileMenuOpen(false); // Close mobile menu when selecting a mode
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen bg-gray-900">
-      <header className="bg-gray-800 shadow-lg border-b border-gray-700">
+      <header className="bg-gray-900 shadow-lg border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ function App() {
         <div className="sm:hidden fixed inset-0 z-50 bg-gray-900">
           <div className="flex flex-col h-full">
             {/* Mobile Menu Header */}
-            <div className="bg-gray-800 shadow-lg border-b border-gray-700">
+            <div className="bg-gray-900 shadow-lg border-b border-gray-700">
               <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">

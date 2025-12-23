@@ -57,7 +57,7 @@ export const LookupMode = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 pb-64">
       <div className="mb-6">
-        <h2 className="text-3xl font-bold text-white mb-2">Checkout Lookup</h2>
+        <h2 className="text-3xl font-bold text-white mb-2">Route Lookup</h2>
         <p className="text-gray-400">
           Enter a score or select from the grid to view checkout routes
         </p>
