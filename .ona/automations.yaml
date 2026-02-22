@@ -1,0 +1,38 @@
+tasks:
+  install-deps:
+    name: Install dependencies
+    description: Install npm packages.
+    command: |
+      npm install
+    triggeredBy:
+      - postDevcontainerStart
+
+  lint:
+    name: Lint
+    description: Run ESLint on the project.
+    command: |
+      npm run lint
+    triggeredBy:
+      - manual
+    dependsOn:
+      - install-deps
+
+  test:
+    name: Test
+    description: Run Vitest test suite.
+    command: |
+      npm run test -- --run
+    triggeredBy:
+      - manual
+    dependsOn:
+      - install-deps
+
+services:
+  dev-server:
+    name: Dev Server
+    description: Vite development server with HMR.
+    commands:
+      start: |
+        npm run dev -- --host 0.0.0.0
+      ready: |
+        curl -f http://localhost:5173
